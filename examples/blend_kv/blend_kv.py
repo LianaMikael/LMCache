@@ -1,9 +1,9 @@
 import time
 
-import lmcache_vllm
-from lmcache_vllm.blend_adapter import (OfflineKVPreCompute,
+import vllm
+from scripts.blend_adapter import (OfflineKVPreCompute,
                                         combine_input_prompt_chunks)
-from lmcache_vllm.vllm import LLM, SamplingParams
+from vllm import LLM, SamplingParams
 
 context_files = ["chunk1.txt", "chunk2.txt"]
 chunks = []
