@@ -37,8 +37,8 @@ outputs = llm.generate(user_prompt, sampling_params_generation)
 for output in outputs:
     generated_text = output.outputs[0].text
     print(f"Newly generated text: {generated_text!r}")
-    ttft = output.metrics.first_token_time - output.metrics.first_scheduled_time
-    print(f"Time to first token: {ttft:.3f} seconds")
+#    ttft = output.metrics.first_token_time - output.metrics.first_scheduled_time
+#    print(f"Time to first token: {ttft:.3f} seconds")
 
 # Graceful exit
-lmcache_vllm.close_lmcache_engine()
+#lmcache_vllm.close_lmcache_engine()

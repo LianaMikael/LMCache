@@ -1,9 +1,9 @@
 import time
 
-import lmcache_vllm
-from lmcache_vllm.blend_adapter import (OfflineKVPreCompute,
+import vllm
+from scripts.blend_adapter import (OfflineKVPreCompute,
                                         combine_input_prompt_chunks)
-from lmcache_vllm.vllm import LLM, SamplingParams
+from vllm import LLM, SamplingParams
 
 context_files = ["chunk1.txt", "chunk2.txt"]
 chunks = []
@@ -40,8 +40,8 @@ outputs = llm.generate([user_prompt_one, user_prompt_two],
 for output in outputs:
     generated_text = output.outputs[0].text
     print(f"Newly generated text: {generated_text!r}")
-    ttft = output.metrics.first_token_time - output.metrics.first_scheduled_time
-    print(f"Time to first token: {ttft:.3f} seconds")
+#    ttft = output.metrics.first_token_time - output.metrics.first_scheduled_time
+#    print(f"Time to first token: {ttft:.3f} seconds")
 
 # Graceful exit
-lmcache_vllm.close_lmcache_engine()
+#lmcache_vllm.close_lmcache_engine()
